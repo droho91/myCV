@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>DO DUY ANH — Web Development Intern — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 10mm; }
+  body { 
+    font-family: 'Montserrat', sans-serif; 
+    background:#f0f0f0; 
+    margin:0; 
+    padding:0; 
+    color:#222; 
+    font-size:14px;
+    line-height:1.5;
+    display: flex;
+    justify-content: center;
+  }
+  .cv-container {
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 15mm;
+    width: 185mm;
+    box-sizing: border-box;
+  }
+  .cv-title {
+    text-align:center;
+    margin-bottom:16px;
+  }
+  .cv-title h1 {
+    font-size:26px;
+    font-weight:800;
+    color:#1976d2;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .cv-title h2 {
+    font-size:16px;
+    font-weight:700;
+    color:#fff;
+    background:linear-gradient(90deg,#2196f3 60%,#87cefa 100%);
+    display:inline-block;
+    padding:5px 20px;
+    border-radius:12px;
+    border:1px solid #2196f3;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    margin:0;
+  }
+  .cv-grid {
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    gap:20px;
+  }
+  .left-col {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .profile-pic {
+    width: 100%;
+    max-width: 180px;
+    margin: 0 auto 12px;
+  }
+  .photo-frame {
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .section {
+    padding:10px 14px;
+    background:#f9f9f9;
+    border-radius:8px;
+    border:1px solid #e0e7ef;
+  }
+  .section-title {
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:8px;
+    color:#444;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .section-title .icon {
+    width:20px;
+    height:20px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    background:#eaf6ff;
+    border-radius:50%;
+    color:#5bb5e3;
+    font-size:13px;
+  }
+  p, li { 
+    font-size:13px;
+    margin:4px 0;
+  }
+  ul { 
+    margin:4px 0;
+    padding-left:16px;
+  }
+  .skills span {
+    display:inline-block;
+    background:#ffeb99;
+    color:#333;
+    padding:4px 7px;
+    margin:3px 4px 0 0;
+    border-radius:3px;
+    border:1px solid #e0c866;
+    font-size:12px;
+  }
+  .btn {
+    display:inline-block;
+    padding:4px 7px;
+    background:#87cefa;
+    color:#000;
+    text-decoration:none;
+    border-radius:3px;
+    margin:5px 4px 0 0;
+    font-weight:600;
+    border:1px solid #5bb5e3;
+    font-size:12px;
+  }
+  .contact-row {
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:6px;
+  }
+  .contact-icon {
+    width: 20px;
+    height: 20px;
+    background:#eaf6ff;
+    border-radius:50%;
+    color:#5bb5e3;
+    font-size:13px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink: 0;
+  }
+ 
+</style>
+</head>
+<body>
+<div class="cv-container">
+  <div class="cv-title">
+    <h1>Do Duy Anh</h1>
+    <h2>Web Development Internship</h2>
+  </div>
+  <div class="cv-grid">
+    <div class="left-col">
+      <div class="profile-pic">
+        <div class="photo-frame">
+          <img src="cv.jpg" alt="Profile Photo"/>
+        </div>
+      </div>
+      <section class="section">
+        <div class="section-title"><span class="icon">🛠️</span> TECHNICAL SKILLS</div>
+        <div class="skills"><b>Language:</b> <span>JavaScript</span><span>TypeScript</span><span>Java</span><span>Python</span><span>Go</span></div>
+        <div class="skills"><b>Frontend:</b> <span>HTML</span><span>CSS</span><span>Tailwind CSS</span><span>ReactJS</span><span>Next.js</span></div>
+        <div class="skills"><b>Backend:</b> <span>Node.js</span><span>Express.js</span></div>
+        <div class="skills"><b>Database:</b> <span>SQL Server</span><span>MongoDB</span></div>
+        <div class="skills"><b>Tool & Environment:</b> <span>Git & GitHub</span><span>SSMS</span><span>Figma</span></div>
+      </section>
+      <section class="section">
+        <div class="section-title"><span class="icon">📞</span> CONTACT</div>
+        <div class="contact-row">
+          <span class="contact-icon">📱</span>
+          <a href="tel:+84913516535">+84 913 516 535</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">✉️</span>
+          <a href="mailto:dduyanh.work@gmail.com">dduyanh.work@gmail.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">🏠</span>
+          <a href="https://maps.google.com/?q=Di+An,+Binh+Duong" target="_blank">Di An, Binh Duong</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">🌐</span>
+          <a href="https://github.com/droho91" target="_blank">github.com/droho91</a>
+        </div>
+      </section>
+    </div>
+    <div class="right-col">
+         <section class="section">
+        <div class="section-title"><span class="icon">👤</span> ABOUT ME</div>
+        <p>Final-year Computer Science student at International University (VNU-HCMC). Passionate about web development with experience in full-stack projects. Seeking internship to apply skills and contribute to team success.</p>
+      </section>
+      <section class="section">
+        <div class="section-title"><span class="icon">📁</span> PROJECTS</div>
+        <p><b>Blackboard — Remake</b><br>A full-stack remake of a student management platform using MVC architecture.<br><i>Techstack:</i> React, Next.js, Tailwind CSS, Node.js, SQL Server.<br><a class="btn" href="https://github.com/koitran14/Course-Management-Project.git">GITHUB</a></p>
+        <p><b>Multiplayer Text-based Class Royale</b><br>Multiplayer terminal-based game with real-time communication and concurrency.<br><i>Techstack:</i> Go, TCP Socket.<br><a class="btn" href="https://github.com/KengG1M/CRM.git">GITHUB</a></p>
+        <p><b>DSA Visualization (Web-based Tool)</b><br>Interactive web app to visualize data structures and sorting algorithms.<br>Implemented using JavaScript and DOM manipulation.<br><a class="btn" href="https://github.com/droho91/DSA-Visualization.git">GITHUB</a> <a class="btn" href="https://droho91.github.io/DSA-Visualization/">DEMO</a></p>
+      </section>
+      <section class="section">
+        <div class="section-title"><span class="icon">🎓</span> EDUCATION</div>
+        <p><b>BSc Computer Science</b> | 2021–Present<br>International University – VNU-HCMC<br>Completed all coursework except final thesis.</p>
+      </section>
+      <section class="section">
+        <div class="section-title"><span class="icon">💼</span> WORK EXPERIENCE</div>
+        <p><b>IUOSS Part-time | 2024</b><br><i>(International University Office of Student Services)</i></p>
+        <ul>
+          <li>Supported students with non-academic issues</li>
+          <li>Organized student events and programs</li>
+          <li>Resolved technical issues for staff team</li>
+          <li>Worked with MS Office and SQL databases</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</div>
+</body>
+</html>
