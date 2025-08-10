@@ -1,4 +1,4 @@
-<!doctype html>
+\\<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -48,10 +48,18 @@
     cursor: pointer;
     font-size: 11px;
     font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  .lang-btn:hover {
+    background: #e3f2fd;
+    transform: translateY(-1px);
   }
   .lang-btn.active {
     background: #2196f3;
     color: white;
+  }
+  .lang-btn.active:hover {
+    background: #1e88e5;
   }
   .cv-title {
     text-align:center;
@@ -77,6 +85,11 @@
     text-transform:uppercase;
     letter-spacing:0.5px;
     margin:0;
+    transition: all 0.3s ease;
+  }
+  .cv-title h2:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
   .cv-grid {
     display:grid;
@@ -99,6 +112,7 @@
     width: 100%;
     max-width: 160px;
     margin: 0 auto 8px;
+    position: relative;
   }
   .photo-frame {
     width: 100%;
@@ -106,18 +120,61 @@
     overflow: hidden;
     border-radius: 4px;
     border: 1px solid rgba(0,0,0,0.1);
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .photo-frame:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .photo-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255,255,255,0.2) 0%,
+      rgba(255,255,255,0.8) 50%,
+      rgba(255,255,255,0.2) 100%
+    );
+    background-size: 200% 200%;
+    animation: shine 3s infinite;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .photo-frame:hover::before {
+    opacity: 1;
   }
   .photo-frame img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    position: relative;
+    z-index: 0;
+  }
+  @keyframes shine {
+    0% {
+      background-position: -100% -100%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
   }
   .section {
     padding:8px 10px;
     background:#f9f9f9;
     border-radius:8px;
     border:1px solid #e0e7ef;
+    transition: all 0.3s ease;
+  }
+  .section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   }
   .section-title {
     font-size:12px;
@@ -138,6 +195,11 @@
     border-radius:50%;
     color:#5bb5e3;
     font-size:11px;
+    transition: all 0.3s ease;
+  }
+  .section:hover .section-title .icon {
+    transform: rotate(10deg);
+    background: #d4edff;
   }
   p, li { 
     font-size:11px;
@@ -156,6 +218,12 @@
     border-radius:3px;
     border:1px solid #e0c866;
     font-size:10px;
+    transition: all 0.2s ease;
+  }
+  .skills span:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    background: #ffe066;
   }
   .btn {
     display:inline-block;
@@ -168,6 +236,12 @@
     font-weight:600;
     border:1px solid #5bb5e3;
     font-size:10px;
+    transition: all 0.2s ease;
+  }
+  .btn:hover {
+    background: #6ec1f8;
+    transform: translateY(-1px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   }
   .contact-row {
     display:flex;
@@ -186,6 +260,18 @@
     align-items:center;
     justify-content:center;
     flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+  .contact-row:hover .contact-icon {
+    transform: scale(1.1);
+    background: #d4edff;
+  }
+  .contact-row a {
+    transition: all 0.2s ease;
+  }
+  .contact-row:hover a {
+    color: #1976d2;
+    text-decoration: underline;
   }
 
   @media print {
@@ -337,7 +423,7 @@
       project1_desc1: "Dự án làm lại nền tảng quản lý sinh viên theo kiến trúc MVC.",
       project1_desc2: "Công nghệ: React, Next.js, Tailwind CSS, Node.js, SQL Server.",
       project2_title: "Multiplayer Text-based Class Royale",
-      project2_desc1: "Trò chơi nhiều người chơi trên terminal, hỗ trợ giao tiếp thời gian thực và xử lý động thời.",
+      project2_desc1: "Trò chơi nhiều người chơi trên terminal, hỗ trợ giao tiếp thời gian thực và xử lý đồng thời.",
       project2_desc2: "Công nghệ: Go, TCP Socket.",
       project3_title: "DSA Visualization (Web-based Tool)",
       project3_desc1: "Ứng dụng web tương tác để trực quan hóa các cấu trúc dữ liệu và thuật toán sắp xếp.",
