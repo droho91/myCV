@@ -6,15 +6,18 @@
 <title>DO DUY ANH — Web Development Intern — CV</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-  @page { size: A4; margin: 10mm; }
+  @page { 
+    size: A4; 
+    margin: 10mm; 
+  }
   body { 
     font-family: 'Montserrat', sans-serif; 
     background:#f0f0f0; 
     margin:0; 
     padding:0; 
     color:#222; 
-    font-size:12px;
-    line-height:1.5;
+    font-size:11px;
+    line-height:1.4;
     display: flex;
     justify-content: center;
   }
@@ -23,29 +26,52 @@
     border: 1px solid #ffffff;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    padding: 15mm;
-    width: 185mm;
+    padding: 10mm;
+    width: 210mm;
+    height: 297mm;
     box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+  }
+  .language-switcher {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 5px;
+  }
+  .lang-btn {
+    padding: 3px 8px;
+    border: 1px solid #2196f3;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .lang-btn.active {
+    background: #2196f3;
+    color: white;
   }
   .cv-title {
     text-align:center;
-    margin-bottom:16px;
+    margin-bottom:12px;
   }
   .cv-title h1 {
-    font-size:26px;
+    font-size:24px;
     font-weight:800;
     color:#1976d2;
     letter-spacing:1px;
     text-transform:uppercase;
-    margin-bottom:8px;
+    margin-bottom:6px;
   }
   .cv-title h2 {
-    font-size:16px;
+    font-size:14px;
     font-weight:700;
     color:#fff;
     background:linear-gradient(90deg,#2196f3 60%,#87cefa 100%);
     display:inline-block;
-    padding:5px 20px;
+    padding:4px 16px;
     border-radius:12px;
     border:1px solid #2196f3;
     text-transform:uppercase;
@@ -55,22 +81,24 @@
   .cv-grid {
     display:grid;
     grid-template-columns: 1fr 2fr;
-    gap:20px;
+    gap:12px;
+    height: calc(100% - 60px);
   }
   .left-col {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 12px;
   }
   .right-col {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 12px;
+    overflow: hidden;
   }
   .profile-pic {
     width: 100%;
-    max-width: 180px;
-    margin: 0 auto 12px;
+    max-width: 160px;
+    margin: 0 auto 8px;
   }
   .photo-frame {
     width: 100%;
@@ -86,81 +114,80 @@
     display: block;
   }
   .section {
-    padding:10px 14px;
+    padding:8px 10px;
     background:#f9f9f9;
     border-radius:8px;
     border:1px solid #e0e7ef;
   }
   .section-title {
-    font-size:14px;
+    font-size:12px;
     font-weight:600;
-    margin-bottom:8px;
+    margin-bottom:6px;
     color:#444;
     display:flex;
     align-items:center;
-    gap:6px;
+    gap:4px;
   }
   .section-title .icon {
-    width:20px;
-    height:20px;
+    width:18px;
+    height:18px;
     display:inline-flex;
     align-items:center;
     justify-content:center;
     background:#eaf6ff;
     border-radius:50%;
     color:#5bb5e3;
-    font-size:13px;
+    font-size:11px;
   }
   p, li { 
-    font-size:13px;
-    margin:4px 0;
+    font-size:11px;
+    margin:3px 0;
   }
   ul { 
-    margin:4px 0;
-    padding-left:16px;
+    margin:3px 0;
+    padding-left:14px;
   }
   .skills span {
     display:inline-block;
     background:#ffeb99;
     color:#333;
-    padding:4px 7px;
-    margin:3px 4px 0 0;
+    padding:3px 6px;
+    margin:2px 3px 0 0;
     border-radius:3px;
     border:1px solid #e0c866;
-    font-size:12px;
+    font-size:10px;
   }
   .btn {
     display:inline-block;
-    padding:4px 7px;
+    padding:3px 6px;
     background:#87cefa;
     color:#000;
     text-decoration:none;
     border-radius:3px;
-    margin:5px 4px 0 0;
+    margin:4px 3px 0 0;
     font-weight:600;
     border:1px solid #5bb5e3;
-    font-size:12px;
+    font-size:10px;
   }
   .contact-row {
     display:flex;
     align-items:center;
-    gap:6px;
-    margin-bottom:6px;
+    gap:4px;
+    margin-bottom:4px;
   }
   .contact-icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     background:#eaf6ff;
     border-radius:50%;
     color:#5bb5e3;
-    font-size:13px;
+    font-size:11px;
     display:inline-flex;
     align-items:center;
     justify-content:center;
     flex-shrink: 0;
   }
 
-  
   @media print {
     body {
       background: none;
@@ -171,18 +198,30 @@
       box-shadow: none;
       border: none;
       width: 210mm;
-      height: auto;
-      transform-origin: top center;
-      transform: scale(var(--print-scale, 1));
+      height: 297mm;
+      padding: 10mm;
+      transform: none;
+      --print-scale: 1;
+    }
+    .cv-grid, .left-col, .right-col, .section {
+      page-break-inside: avoid;
+    }
+    .language-switcher {
+      display: none;
     }
   }
 </style>
 </head>
 <body>
 <div class="cv-container">
+  <div class="language-switcher">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="vi">VI</button>
+  </div>
+  
   <div class="cv-title">
     <h1>Do Duy Anh</h1>
-    <h2>Web Development Internship</h2>
+    <h2 class="lang" data-key="title">Web Development Internship</h2>
   </div>
   <div class="cv-grid">
     <div class="left-col">
@@ -192,12 +231,12 @@
         </div>
       </div>
       <section class="section">
-        <div class="section-title"><span class="icon">🛠️</span> TECHNICAL SKILLS</div>
-        <div class="skills"><b>Language:</b><br> <span>JavaScript</span><span>TypeScript</span><span>Java</span><span>Python</span><span>Go</span></div>
-        <div class="skills"><b>Frontend:</b> <br><span>HTML</span><span>CSS</span><span>Tailwind CSS</span><span>ReactJS</span><span>Next.js</span></div>
-        <div class="skills"><b>Backend:</b><br> <span>Node.js</span><span>Express.js</span></div>
-        <div class="skills"><b>Database:</b> <br><span>SQL Server</span><span>MongoDB</span></div>
-        <div class="skills"><b>Tool & Environment:</b> <br><span>Git & GitHub</span><span>SSMS</span><span>Figma</span></div>
+        <div class="section-title"><span class="icon">🛠️</span> <span class="lang" data-key="skills_title">TECHNICAL SKILLS</span></div>
+        <div class="skills"><b class="lang" data-key="skills_lang">Language:</b><br> <span>JavaScript</span><span>TypeScript</span><span>Java</span><span>Python</span><span>Go</span></div>
+        <div class="skills"><b class="lang" data-key="skills_frontend">Frontend:</b> <br><span>HTML</span><span>CSS</span><span>Tailwind CSS</span><span>ReactJS</span><span>Next.js</span></div>
+        <div class="skills"><b class="lang" data-key="skills_backend">Backend:</b><br> <span>Node.js</span><span>Express.js</span></div>
+        <div class="skills"><b class="lang" data-key="skills_db">Database:</b> <br><span>SQL Server</span><span>MongoDB</span></div>
+        <div class="skills"><b class="lang" data-key="skills_tools">Tool & Environment:</b> <br><span>Git & GitHub</span><span>SSMS</span><span>Figma</span></div>
       </section>
       <section class="section">
         <div class="section-title"><span class="icon">📞</span> CONTACT</div>
@@ -211,7 +250,7 @@
         </div>
         <div class="contact-row">
           <span class="contact-icon">🏠</span>
-          <a href="https://maps.google.com/?q=Di+An,+Binh+Duong" target="_blank">Di An, Binh Duong</a>
+          <a href="https://maps.google.com/?q=Di+An,+Binh+Duong" target="_blank" class="lang" data-key="address">Di An, Binh Duong</a>
         </div>
         <div class="contact-row">
           <span class="contact-icon">🌐</span>
@@ -220,28 +259,28 @@
       </section>
     </div>
     <div class="right-col">
-         <section class="section">
-        <div class="section-title"><span class="icon">👤</span> ABOUT ME</div>
-        <p>Final-year Computer Science student at International University (VNU-HCMC). Passionate about web development with experience in full-stack projects. Seeking internship to apply skills and contribute to team success.</p>
+      <section class="section">
+        <div class="section-title"><span class="icon">👤</span> <span class="lang" data-key="about_title">ABOUT ME</span></div>
+        <p class="lang" data-key="about_text">Final-year Computer Science student at International University (VNU-HCMC). Passionate about web development with experience in full-stack projects. Seeking internship to apply skills and contribute to team success.</p>
       </section>
       <section class="section">
         <div class="section-title"><span class="icon">📁</span> PROJECTS</div>
-        <p><b>Blackboard — Remake</b><br><li>A full-stack remake of a student management platform using MVC architecture.</li><li>Techstack: React, Next.js, Tailwind CSS, Node.js, SQL Server.</li></li><a class="btn" href="https://github.com/koitran14/Course-Management-Project.git">GITHUB</a></p>
-        <p><b>Multiplayer Text-based Class Royale</b><li>Multiplayer terminal-based game with real-time communication and concurrency.</li><li>Techstack: Go, TCP Socket.</li><a class="btn" href="https://github.com/KengG1M/CRM.git">GITHUB</a></p>
-        <p><b>DSA Visualization (Web-based Tool)</b><li>Interactive web app to visualize data structures and sorting algorithms.</li><li>Implemented using JavaScript and DOM manipulation.</li><a class="btn" href="https://github.com/droho91/DSA-Visualization.git">GITHUB</a> <a class="btn" href="https://droho91.github.io/DSA-Visualization/">DEMO</a></p>
+        <p><b class="lang" data-key="project1_title">Blackboard — Remake</b><br><li class="lang" data-key="project1_desc1">A full-stack remake of a student management platform using MVC architecture.</li><li class="lang" data-key="project1_desc2">Techstack: React, Next.js, Tailwind CSS, Node.js, SQL Server.</li><a class="btn" href="https://github.com/koitran14/Course-Management-Project.git">GITHUB</a></p>
+        <p><b class="lang" data-key="project2_title">Multiplayer Text-based Class Royale</b><li class="lang" data-key="project2_desc1">Multiplayer terminal-based game with real-time communication and concurrency.</li><li class="lang" data-key="project2_desc2">Techstack: Go, TCP Socket.</li><a class="btn" href="https://github.com/KengG1M/CRM.git">GITHUB</a></p>
+        <p><b class="lang" data-key="project3_title">DSA Visualization (Web-based Tool)</b><li class="lang" data-key="project3_desc1">Interactive web app to visualize data structures and sorting algorithms.</li><li class="lang" data-key="project3_desc2">Implemented using JavaScript and DOM manipulation.</li><a class="btn" href="https://github.com/droho91/DSA-Visualization.git">GITHUB</a> <a class="btn" href="https://droho91.github.io/DSA-Visualization/">DEMO</a></p>
       </section>
       <section class="section">
-        <div class="section-title"><span class="icon">🎓</span> EDUCATION</div>
-        <p><b>BSc Computer Science</b> | 2021–Present<br>International University – VNU-HCMC<br>Completed all coursework except final thesis.</p>
+        <div class="section-title"><span class="icon">🎓</span> <span class="lang" data-key="edu_title">EDUCATION</span></div>
+        <p><b class="lang" data-key="edu_degree">BSc Computer Science</b> | <span class="lang" data-key="edu_period">2021–Present</span><br><span class="lang" data-key="edu_school">International University – VNU-HCMC</span><br><span class="lang" data-key="edu_status">Completed all coursework except final thesis.</span></p>
       </section>
       <section class="section">
-        <div class="section-title"><span class="icon">💼</span> WORK EXPERIENCE</div>
-        <p><b>IUOSS Part-time | 2024</b><br><i>(International University Office of Student Services)</i></p>
+        <div class="section-title"><span class="icon">💼</span> <span class="lang" data-key="exp_title">WORK EXPERIENCE</span></div>
+        <p><b class="lang" data-key="exp_job">IUOSS Part-time | 2024</b><br><i class="lang" data-key="exp_company">(International University Office of Student Services)</i></p>
         <ul>
-          <li>Supported students with non-academic issues</li>
-          <li>Organized student events and programs</li>
-          <li>Resolved technical issues for staff team</li>
-          <li>Worked with MS Office and SQL databases</li>
+          <li class="lang" data-key="exp_desc1">Supported students with non-academic issues</li>
+          <li class="lang" data-key="exp_desc2">Organized student events and programs</li>
+          <li class="lang" data-key="exp_desc3">Resolved technical issues for staff team</li>
+          <li class="lang" data-key="exp_desc4">Worked with MS Office and SQL databases</li>
         </ul>
       </section>
     </div>
@@ -249,14 +288,127 @@
 </div>
 
 <script>
-  
-  window.addEventListener("load", () => {
-    const cv = document.querySelector(".cv-container");
-    const pxHeight = cv.offsetHeight;
-    const mmHeight = (pxHeight / 96) * 25.4; 
-    const scale = 297 / mmHeight; 
-    document.documentElement.style.setProperty("--print-scale", scale);
+  // Language data
+  const translations = {
+    en: {
+      title: "Web Development Internship",
+      skills_title: "TECHNICAL SKILLS",
+      skills_lang: "Language:",
+      skills_frontend: "Frontend:",
+      skills_backend: "Backend:",
+      skills_db: "Database:",
+      skills_tools: "Tool & Environment:",
+      about_title: "ABOUT ME",
+      about_text: "Final-year Computer Science student at International University (VNU-HCMC). Passionate about web development with experience in full-stack projects. Seeking internship to apply skills and contribute to team success.",
+      project1_title: "Blackboard — Remake",
+      project1_desc1: "A full-stack remake of a student management platform using MVC architecture.",
+      project1_desc2: "Techstack: React, Next.js, Tailwind CSS, Node.js, SQL Server.",
+      project2_title: "Multiplayer Text-based Class Royale",
+      project2_desc1: "Multiplayer terminal-based game with real-time communication and concurrency.",
+      project2_desc2: "Techstack: Go, TCP Socket.",
+      project3_title: "DSA Visualization (Web-based Tool)",
+      project3_desc1: "Interactive web app to visualize data structures and sorting algorithms.",
+      project3_desc2: "Implemented using JavaScript and DOM manipulation.",
+      edu_title: "EDUCATION",
+      edu_degree: "BSc Computer Science",
+      edu_period: "2021–Present",
+      edu_school: "International University – VNU-HCMC",
+      edu_status: "Completed all coursework except final thesis.",
+      exp_title: "WORK EXPERIENCE",
+      exp_job: "IUOSS Part-time | 2024",
+      exp_company: "(International University Office of Student Services)",
+      exp_desc1: "Supported students with non-academic issues",
+      exp_desc2: "Organized student events and programs",
+      exp_desc3: "Resolved technical issues for staff team",
+      exp_desc4: "Worked with MS Office and SQL databases",
+      address: "Di An, Binh Duong"
+    },
+    vi: {
+      title: "Thực tập sinh Phát triển Web",
+      skills_title: "KỸ NĂNG CHUYÊN MÔN",
+      skills_lang: "Ngôn ngữ lập trình:",
+      skills_frontend: "Frontend:",
+      skills_backend: "Backend:",
+      skills_db: "Cơ sở dữ liệu:",
+      skills_tools: "Công cụ & môi trường:",
+      about_title: "GIỚI THIỆU BẢN THÂN",
+      about_text: "Là sinh viên năm cuối chuyên ngành Khoa học Máy tính tại Trường Đại học Quốc tế (IU), Đại học Quốc gia TP.HCM, em mong muốn được áp dụng những kiến thức và kỹ năng đã học vào niềm đam mê phát triển web. Em khao khát được trải nghiệm thực tế trong môi trường làm việc chuyên nghiệp, nơi em có thể phát triển bản thân và đóng góp tích cực vào thành công chung của tập thể.",
+      project1_title: "Blackboard — Remake",
+      project1_desc1: "Dự án làm lại nền tảng quản lý sinh viên theo kiến trúc MVC.",
+      project1_desc2: "Công nghệ: React, Next.js, Tailwind CSS, Node.js, SQL Server.",
+      project2_title: "Multiplayer Text-based Class Royale",
+      project2_desc1: "Trò chơi nhiều người chơi trên terminal, hỗ trợ giao tiếp thời gian thực và xử lý động thời.",
+      project2_desc2: "Công nghệ: Go, TCP Socket.",
+      project3_title: "DSA Visualization (Web-based Tool)",
+      project3_desc1: "Ứng dụng web tương tác để trực quan hóa các cấu trúc dữ liệu và thuật toán sắp xếp.",
+      project3_desc2: "Sử dụng JavaScript và thao tác với DOM.",
+      edu_title: "HỌC VẤN",
+      edu_degree: "Cử nhân Khoa học Máy tính",
+      edu_period: "2021 – Nay",
+      edu_school: "Trường Đại học Quốc tế – Đại học Quốc gia TP.HCM",
+      edu_status: "Đã hoàn thành tất cả các môn học, chỉ còn luận vẫn tốt nghiệp.",
+      exp_title: "KINH NGHIỆM LÀM VIỆC",
+      exp_job: "Nhân viên Bán thời gian tại IUOSS | 2024",
+      exp_company: "(Phòng Công tác Sinh viên – Trường Đại học Quốc tế)",
+      exp_desc1: "Hỗ trợ sinh viên giải quyết các vấn đề phí học thuật",
+      exp_desc2: "Hỗ trợ tổ chức các sự kiện và chương trình do IUOSS tổ chức",
+      exp_desc3: "Chịu trách nhiệm xử lý các vấn đề liên quan đến máy tính trong nhóm nhân sự bán thời gian",
+      exp_desc4: "Làm việc với các ứng dụng Microsoft Office, đặc biệt là Access, tương tác với cơ sở dữ liệu SQL",
+      address: "Tân Lập, Dĩ An, Bình Dương"
+    }
+  };
+
+  // Language switching functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const langButtons = document.querySelectorAll('.lang-btn');
+    let currentLang = 'en';
+    
+    // Check for saved language preference
+    const savedLang = localStorage.getItem('cvLang');
+    if (savedLang) {
+      currentLang = savedLang;
+      setActiveButton(currentLang);
+    }
+    
+    // Set initial language
+    updateLanguage(currentLang);
+    
+    // Add click event listeners
+    langButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const lang = this.getAttribute('data-lang');
+        currentLang = lang;
+        localStorage.setItem('cvLang', lang);
+        updateLanguage(lang);
+        setActiveButton(lang);
+      });
+    });
+    
+    // Auto-resize for printing
+    const container = document.querySelector('.cv-container');
+    if (container.scrollHeight > container.offsetHeight) {
+      document.body.style.fontSize = '10.5px';
+    }
   });
+  
+  function updateLanguage(lang) {
+    document.querySelectorAll('.lang').forEach(element => {
+      const key = element.getAttribute('data-key');
+      if (translations[lang] && translations[lang][key]) {
+        element.textContent = translations[lang][key];
+      }
+    });
+  }
+  
+  function setActiveButton(lang) {
+    document.querySelectorAll('.lang-btn').forEach(button => {
+      if (button.getAttribute('data-lang') === lang) {
+        button.classList.add('active');
+      } else {
+        button.classList.remove('active');
+      }
+    });
+  }
 </script>
 </body>
 </html>
