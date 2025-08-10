@@ -13,7 +13,7 @@
     margin:0; 
     padding:0; 
     color:#222; 
-    font-size:14px;
+    font-size:12px;
     line-height:1.5;
     display: flex;
     justify-content: center;
@@ -159,7 +159,23 @@
     justify-content:center;
     flex-shrink: 0;
   }
- 
+
+  
+  @media print {
+    body {
+      background: none;
+      margin: 0;
+      padding: 0;
+    }
+    .cv-container {
+      box-shadow: none;
+      border: none;
+      width: 210mm;
+      height: auto;
+      transform-origin: top center;
+      transform: scale(var(--print-scale, 1));
+    }
+  }
 </style>
 </head>
 <body>
@@ -231,5 +247,16 @@
     </div>
   </div>
 </div>
+
+<script>
+  
+  window.addEventListener("load", () => {
+    const cv = document.querySelector(".cv-container");
+    const pxHeight = cv.offsetHeight;
+    const mmHeight = (pxHeight / 96) * 25.4; 
+    const scale = 297 / mmHeight; 
+    document.documentElement.style.setProperty("--print-scale", scale);
+  });
+</script>
 </body>
 </html>
