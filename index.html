@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>DO DUY ANH - Web Development Intern - CV</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="logo.png" sizes="32x32" type="image/png">
 <style>
   @page { 
     size: A4; 
@@ -114,57 +115,100 @@
     margin: 0 auto 8px;
     position: relative;
   }
-  .photo-frame {
-    width: 100%;
-    aspect-ratio: 3/4;
-    overflow: hidden;
-    border-radius: 4px;
-    border: 1px solid rgba(0,0,0,0.1);
-    position: relative;
-    transition: all 0.3s ease;
-  }
-  .photo-frame:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-  .photo-frame::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(255,255,255,0.2) 0%,
-      rgba(255,255,255,0.8) 50%,
-      rgba(255,255,255,0.2) 100%
-    );
-    background-size: 200% 200%;
-    animation: shine 3s infinite;
-    z-index: 1;
+.photo-frame {
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.06);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #f6f6f6;
+}
+
+.photo-frame {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Vệt sáng */
+.photo-frame::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -60%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    110deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.4) 45%,
+    rgba(255,255,255,0.9) 50%,
+    rgba(255,255,255,0.4) 55%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: rotate(8deg);
+  filter: blur(3px);
+  opacity: 0; 
+  pointer-events: none;
+}
+
+.photo-frame:hover {
+  transform: scale(1.05); 
+  filter: brightness(1.05); 
+}
+
+.photo-frame:hover img {
+  transform: scale(1.05); 
+}
+
+.photo-frame:hover::after {
+  animation: sheen-slide 1.8s ease-in-out 1 forwards; 
+}
+
+@keyframes sheen-slide {
+  0% {
+    transform: translateX(-120%) rotate(8deg);
     opacity: 0;
-    transition: opacity 0.3s ease;
   }
-  .photo-frame:hover::before {
+  10% {
+    opacity: 0.7;
+  }
+  30% {
+    transform: translateX(40%) rotate(8deg);
     opacity: 1;
   }
-  .photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    position: relative;
-    z-index: 0;
+  50% {
+    transform: translateX(120%) rotate(8deg);
+    opacity: 0;
   }
-  @keyframes shine {
-    0% {
-      background-position: -100% -100%;
-    }
-    100% {
-      background-position: 100% 100%;
-    }
+  100% {
+    transform: translateX(150%) rotate(8deg); 
+    opacity: 0;
   }
+}
+
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 0;
+  backface-visibility: hidden;
+}
+
   .section {
     padding:8px 10px;
     background:#f9f9f9;
